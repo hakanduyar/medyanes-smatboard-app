@@ -46,6 +46,8 @@ body {
   max-height: 100%;
   display: block;
   border: none;
+  border: 1px solid #000;
+
 }
 
 .tools-board {
@@ -375,11 +377,34 @@ body {
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  /* pointer-events: none; Tıklanamaz hale getirir */
+  transition: all 0.3s ease;
 }
 
-.page-number span {
-  color: #000000; /* Vurgulanan sayılar için renk */
+.page-number:hover {
+  color: #fff;
+  background: #6c757d;
+}
+
+
+.open-keyboard {
+  position: relative;
+  bottom: 5px;
+  left: 50%;
+  margin-bottom: 12px;
+  transform: translateX(-50%);
+  background-color: #4a98f7;
+  color: #000000;
+  padding: 8px 70px;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.open-keyboard:hover {
+  color: #fff;
+  background: #6c757d;
 }
 
 .popup {
@@ -464,4 +489,114 @@ body {
   border-radius: 5px;
   box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.388);
 
+}
+/* Yeni Popup Klavye Stil */
+/* Klavye Popup */
+#keyboard-popup .popup-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+#keyboard-popup h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#keyboard-popup .keypad {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#keyboard-popup .keypad .key {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#keyboard-popup .keypad .key:hover {
+  background-color: #e0e0e0;
+}
+
+#keyboard-input{
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+  border: 1px solid ;
+  border-radius: 5px;
+  box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.388);
+}
+
+#clear-keyboard, #submit-keyboard {
+  padding: 10px 20px;
+  background-color: #4a98f7;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+  width: 45%;
+}
+
+#clear-keyboard:hover, #submit-keyboard:hover {
+  background-color: #356bb2;
+}
+
+#clear-keyboard:active, #submit-keyboard:active {
+  background-color: #2b5792;
+}
+
+#keyboard-popup .popup-content .close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+#keyboard-popup .popup-content .close:hover {
+  color: #ff5c5c;
+}
+
+
+
+.text-container {
+  position: absolute;
+  border: 2px dashed #00F;
+  padding: 5px;
+  resize: both;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.text-container .resize-handle {
+  width: 15px;
+  height: 15px;
+  background: #00F;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  cursor: nwse-resize;
 }

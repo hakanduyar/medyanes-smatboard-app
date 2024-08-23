@@ -395,9 +395,94 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Popup işlemleri
+  const popup = document.getElementById("popup");
+  const openPopupButton = document.getElementById("page-number-btn");
+  const closePopupButton = document.querySelector(".popup .close");
+  const goButton = document.getElementById("go-button");
+  const pageInput = document.getElementById("page-input");
+  const numButtons = document.querySelectorAll(".num-buttons button:not(#clear, #go-button)");
+  const clearButton = document.getElementById("clear");
+  const currentPageElement = document.getElementById("current-page");
 
+  // Keyboard işlemleri
+  const keyboardPopup = document.getElementById("keyboard-popup");
+  const openKeyboardButton = document.getElementById("open-keyboard-btn");
+  const closeKeyboardButton = document.getElementById("close-keyboard");
+  const keyboardInput = document.getElementById("keyboard-input");
+  const keys = document.querySelectorAll("#keyboard .keypad .key");
+  const clearKeyboardButton = document.getElementById("clear-keyboard");
+  const submitKeyboardButton = document.getElementById("submit-keyboard");
 
+  // Popup'ı aç
+  openPopupButton.addEventListener("click", () => {
+    pageInput.value = ""; // Input'u temizle
+    popup.style.display = "flex";
+  });
 
+  // Popup'ı kapat
+  closePopupButton.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
 
+  // Sayfa numarasını gir
+  numButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      pageInput.value += button.textContent;
+    });
+  });
 
+  // Input'u temizle
+  clearButton.addEventListener("click", () => {
+    pageInput.value = "";
+  });
 
+  // Sayfaya git
+  goButton.addEventListener("click", () => {
+    const pageNumber = parseInt(pageInput.value, 10);
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      pageNum = pageNumber;
+      showImage(pageNum);
+      clearDrawingCanvas();
+      currentPageElement.textContent = pageNum; // Sayfa numarasını güncelle
+      popup.style.display = "none";
+    }
+  });
+
+  // Keyboard açma/kapama
+  openKeyboardButton.addEventListener("click", () => {
+    keyboardPopup.style.display = "flex";
+  });
+
+  closeKeyboardButton.addEventListener("click", () => {
+    keyboardPopup.style.display = "none";
+  });
+
+  keys.forEach(key => {
+    key.addEventListener("click", () => {
+      keyboardInput.value += key.textContent;
+    });
+  });
+
+  clearKeyboardButton.addEventListener("click", () => {
+    keyboardInput.value = "";
+  });
+
+  submitKeyboardButton.addEventListener("click", () => {
+    // Canvas'a yazıyı ekleme
+    ctx.font = "20px Arial";
+    ctx.fillStyle = "#000"; // Yazı rengini ayarlayın
+    ctx.fillText(keyboardInput.value, 50, 50); // Yazıyı canvas üzerinde belirli bir pozisyona çizin
+
+    keyboardPopup.style.display = "none";
+    keyboardInput.value = ""; // Giriş alanını temizle
+  });
+
+  // Popup dışına tıklayınca kapat
+  window.addEventListener("click", (event) => {
+    if (event.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+});
