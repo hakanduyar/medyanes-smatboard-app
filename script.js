@@ -343,6 +343,7 @@ drawingCanvas.addEventListener("mouseup", () => {
 // script.js
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Sayfa numarası popup işlemleri
   const popup = document.getElementById("popup");
   const openPopupButton = document.getElementById("page-number-btn");
   const closePopupButton = document.querySelector(".popup .close");
@@ -352,61 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearButton = document.getElementById("clear");
   const currentPageElement = document.getElementById("current-page");
 
-  // Popup'ı aç
-  openPopupButton.addEventListener("click", () => {
-    pageInput.value = ""; // Input'u temizle
-    popup.style.display = "flex";
-  });
-
-  // Popup'ı kapat
-  closePopupButton.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
-
-  // Sayfa numarasını gir
-  numButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      pageInput.value += button.textContent;
-    });
-  });
-
-  // Input'u temizle
-  clearButton.addEventListener("click", () => {
-    pageInput.value = "";
-  });
-
-  // Sayfaya git
-  goButton.addEventListener("click", () => {
-    const pageNumber = parseInt(pageInput.value, 10);
-    if (pageNumber >= 1 && pageNumber <= totalPages) {
-      pageNum = pageNumber;
-      showImage(pageNum);
-      clearDrawingCanvas();
-      currentPageElement.textContent = pageNum; // Sayfa numarasını güncelle
-      popup.style.display = "none";
-    }
-  });
-
-  // Popup dışına tıklayınca kapat
-  window.addEventListener("click", (event) => {
-    if (event.target === popup) {
-      popup.style.display = "none";
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Popup işlemleri
-  const popup = document.getElementById("popup");
-  const openPopupButton = document.getElementById("page-number-btn");
-  const closePopupButton = document.querySelector(".popup .close");
-  const goButton = document.getElementById("go-button");
-  const pageInput = document.getElementById("page-input");
-  const numButtons = document.querySelectorAll(".num-buttons button:not(#clear, #go-button)");
-  const clearButton = document.getElementById("clear");
-  const currentPageElement = document.getElementById("current-page");
-
-  // Keyboard işlemleri
+  // Keyboard popup işlemleri
   const keyboardPopup = document.getElementById("keyboard-popup");
   const openKeyboardButton = document.getElementById("open-keyboard-btn");
   const closeKeyboardButton = document.getElementById("close-keyboard");
@@ -415,30 +362,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearKeyboardButton = document.getElementById("clear-keyboard");
   const submitKeyboardButton = document.getElementById("submit-keyboard");
 
-  // Popup'ı aç
+  // Sayfa numarası popup işlemleri
   openPopupButton.addEventListener("click", () => {
     pageInput.value = ""; // Input'u temizle
     popup.style.display = "flex";
   });
 
-  // Popup'ı kapat
   closePopupButton.addEventListener("click", () => {
     popup.style.display = "none";
   });
 
-  // Sayfa numarasını gir
   numButtons.forEach(button => {
     button.addEventListener("click", () => {
       pageInput.value += button.textContent;
     });
   });
 
-  // Input'u temizle
   clearButton.addEventListener("click", () => {
     pageInput.value = "";
   });
 
-  // Sayfaya git
   goButton.addEventListener("click", () => {
     const pageNumber = parseInt(pageInput.value, 10);
     if (pageNumber >= 1 && pageNumber <= totalPages) {
@@ -450,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Keyboard açma/kapama
+  // Keyboard popup işlemleri
   openKeyboardButton.addEventListener("click", () => {
     keyboardPopup.style.display = "flex";
   });
@@ -483,6 +426,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("click", (event) => {
     if (event.target === popup) {
       popup.style.display = "none";
+    }
+    if (event.target === keyboardPopup) {
+      keyboardPopup.style.display = "none";
     }
   });
 });
