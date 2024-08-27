@@ -6,7 +6,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+<<<<<<< HEAD
   
+=======
+>>>>>>> ac764e86d2da1a15bce4193bdd635c273646350c
 }
 
 body {
@@ -21,9 +24,12 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+<<<<<<< HEAD
   height: 100%;
   width: 100%;
   overflow: hidden; 
+=======
+>>>>>>> ac764e86d2da1a15bce4193bdd635c273646350c
 }
 
 .container {
@@ -33,7 +39,10 @@ body {
   width: 100%;
   height: 100vh;
   position: relative;
+<<<<<<< HEAD
   
+=======
+>>>>>>> ac764e86d2da1a15bce4193bdd635c273646350c
 }
 
 .drawing-board {
@@ -44,6 +53,7 @@ body {
   width: 80%;
   height: auto;
   margin: auto;
+<<<<<<< HEAD
   
 }
 
@@ -54,6 +64,16 @@ body {
   width: 100%;
   height: auto;
   cursor: grab; /* Fare ile tutma işareti */
+=======
+}
+
+#pdf-canvas {
+  max-width: 95%;
+  max-height: 100%;
+  display: block;
+  border: none;
+  border: 1px solid #000;
+>>>>>>> ac764e86d2da1a15bce4193bdd635c273646350c
 
 }
 
@@ -290,7 +310,11 @@ body {
 
 .vertical-line {
   border-left: 1.5px solid #332d2d26; /* Çizginin kalınlığı ve rengi */
+<<<<<<< HEAD
   height: 145px; /* Çizginin yüksekliği */
+=======
+  height: 198px; /* Çizginin yüksekliği */
+>>>>>>> ac764e86d2da1a15bce4193bdd635c273646350c
   position: absolute;
   margin: 0 0px; /* Yatayda boşluk (yatay çizgilere göre ayarlayın) */
 }
@@ -392,6 +416,7 @@ body {
   background: #6c757d;
 }
 
+<<<<<<< HEAD
 .option-tool{
     transition: all 0.3s ease;
     background-color: #4a98f7;
@@ -412,6 +437,8 @@ body {
   }
 
 
+=======
+>>>>>>> ac764e86d2da1a15bce4193bdd635c273646350c
 
 .open-keyboard {
   position: relative;
@@ -628,6 +655,7 @@ body {
   cursor: nwse-resize;
 }
 
+<<<<<<< HEAD
 /* CSS Kodları */
 .hand-cursor {
   cursor: grab; /* El imleci */
@@ -655,3 +683,8 @@ body {
 }
 
 
+=======
+.cursor-crosshair {
+  cursor: crosshair !important;
+}
+>>>>>>> ac764e86d2da1a15bce4193bdd635c273646350c
